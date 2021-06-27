@@ -1,9 +1,8 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 
-import EditScreenInfo from "../components/EditScreenInfo";
-import FieldImage from "../assets/images/field.jpg";
-import { FontAwesome5 } from "@expo/vector-icons";
-import React from "react";
+import FieldImage from '../assets/images/field.jpg';
+import Player from './Player';
+import React from 'react';
 
 const players: { [key: string]: null[] } = {
   FWD: [null, null, null],
@@ -19,17 +18,10 @@ const Field = () => {
       source={FieldImage}
       style={styles.field}
     >
-      {Object.keys(players).map((position) => (
-        <View style={styles.PlayersContainer}>
-          {players[position].map((player) => (
-            <View style={styles.PlayerView}>
-              <FontAwesome5
-                name="tshirt"
-                size={35}
-                color={player ? "#d178db" : "#5c5c5cbb"}
-              />
-              <Text style={styles.playerName}> {position} </Text>
-            </View>
+      {Object.keys(players).map((position ,index) => (
+        <View key={index} style={styles.PlayersContainer}>
+          {players[position].map((player, index) => (
+            <Player player={player} position={position} key={index} />
           ))}
         </View>
       ))}
@@ -50,16 +42,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     width: "100%",
-  },
-  PlayerView: {
-    alignItems: "center",
-  },
-  playerName: {
-    backgroundColor: "#333333bb",
-    color: "whitesmoke",
-    fontWeight: "bold",
-    padding: 2,
-    fontSize: 12,
-    paddingHorizontal: 7,
   },
 });
