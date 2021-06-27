@@ -21,11 +21,11 @@ export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
 
-enum Position {
-  FWD,
-  MID,
-  DEF,
-  GCK,
+export enum Position {
+  FWD='FWD',
+  MID='MID',
+  DEF='DEF',
+  GCK='GCK',
 }
 
 export type Player = {

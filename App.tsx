@@ -1,12 +1,13 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 
-import Navigation from './navigation';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
-import TabOneScreen from './screens/TabOneScreen'
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
+import Navigation from "./navigation";
+import React from "react";
+import { RecoilRoot } from "recoil";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import TabOneScreen from "./screens/TabOneScreen";
+import useCachedResources from "./hooks/useCachedResources";
+import useColorScheme from "./hooks/useColorScheme";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -17,7 +18,9 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <TabOneScreen />
+        <RecoilRoot>
+          <TabOneScreen />
+        </RecoilRoot>
         <StatusBar />
       </SafeAreaProvider>
     );

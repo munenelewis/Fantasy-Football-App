@@ -1,13 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 
-import { FontAwesome5 } from '@expo/vector-icons';
-import React from 'react';
+import { FontAwesome5 } from "@expo/vector-icons";
+import React from "react";
 
-interface PlayerProps  {
-    player:any,
-    position:string
+interface PlayerProps {
+  player: any;
+  position: string;
 }
-export default function Player(props : PlayerProps) {
+export default function Player(props: PlayerProps) {
   return (
     <View style={styles.PlayerView}>
       <FontAwesome5
@@ -15,7 +15,9 @@ export default function Player(props : PlayerProps) {
         size={35}
         color={props.player ? "#d178db" : "#5c5c5cbb"}
       />
-      <Text style={styles.playerName}> {props.position} </Text>
+      <Text style={styles.playerName}>
+        {props.player ? props.player.name : props.position}
+      </Text>
     </View>
   );
 }

@@ -3,15 +3,18 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import FieldImage from '../assets/images/field.jpg';
 import Player from './Player';
 import React from 'react';
+import { myPlayersByPosition } from '../atoms/MyTeam';
+import { useRecoilValue } from 'recoil';
 
-const players: { [key: string]: null[] } = {
-  FWD: [null, null, null],
-  MID: [null, null, null],
-  DEF: [null, null, null],
-  GKC: [null],
-};
+// const players: { [key: string]: null[] } = {
+//   FWD: [null, null, null],
+//   MID: [null, null, null],
+//   DEF: [null, null, null],
+//   GKC: [null],
+// };
 
 const Field = () => {
+    const players = useRecoilValue(myPlayersByPosition)
   return (
     <ImageBackground
       resizeMode="contain"
