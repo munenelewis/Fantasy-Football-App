@@ -1,15 +1,19 @@
 import * as React from 'react';
 
+import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 
 import EditScreenInfo from '../components/EditScreenInfo';
-import { StyleSheet } from 'react-native';
+import FieldImage from '../assets/images/field.jpg'
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ImageBackground resizeMode='contain' source={FieldImage} style={styles.field}>
+
+      </ImageBackground>
     
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -17,7 +21,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
+  field:{
+    width:"100%",
+    aspectRatio: 2/3
+  }
   
 });
