@@ -20,3 +20,20 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
+
+enum Position {
+  FWD,
+  MID,
+  DEF,
+  GCK,
+}
+
+export type Player = {
+  id: string;
+  name: string;
+  image?: string;
+  match: string;
+  price: number;
+  position: Position;
+  totalPoints:number
+};
